@@ -1,8 +1,11 @@
 import './App.css';
+import Layout from './layout';
 import RouterContainer from './routes';
 
 function App() {
-  return <RouterContainer />
+  return (
+    <Layout><RouterContainer /></Layout>
+  )
 
 }
 
