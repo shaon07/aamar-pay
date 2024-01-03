@@ -17,6 +17,7 @@ export default function HomepageViewLayer() {
                                 { label: "Option 3", value: "3" },
                             ]} label="Select an option" />
                         </div>
+
                         <Table />
                     </div>
                 </Col>
