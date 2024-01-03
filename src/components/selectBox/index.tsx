@@ -1,16 +1,27 @@
+import { styles } from "../../styles/tailwind/selectbox/index.css";
+import { selectOptions } from "../../types";
+import { checkArray } from "../../utils/checkArray";
 
-export default function SelectBox() {
+type SelectBoxProps = {
+    label?: string;
+    onChange?: (value: string) => void;
+    options: selectOptions[];
+    className?: string;
+}
+
+export default function SelectBox({ options, label, className, onChange = () => { } }: SelectBoxProps) {
     return (
-        <div>
-            <label htmlFor="countries" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Select an option</label>
-            <select id="countries" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
-                <option selected>Choose a country</option>
-                <option value="US">United States</option>
-                <option value="CA">Canada</option>
-                <option value="FR">France</option>
-                <option value="DE">Germany</option>
-            </select>
+        <div className={`${className}`}>
+            <label htmlFor="countries" className={`${styles.label}`}>
+                {label || "Select an option"}
+            </label>
 
+            <select id="countries" className={`${styles.select}`} onChange={e => onChange(e.target.value)}>
+                <option selected>Choose a options</option>
+                {
+                    checkArray(options) && options.map((option) => <option value={option.value}>{option.label}</option>)
+                }
+            </select>
         </div>
     )
 }
