@@ -7,7 +7,7 @@ export default function RouterContainer() {
     return (
         <Routes>
             <Route path="/" element={<Homepage />} />
-            <Route path="/details" element={<Details />} />
+            <Route path="/details/:id" element={<Details />} />
             <Route element={<NotFound />} />
         </Routes>
     )

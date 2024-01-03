@@ -1,22 +1,29 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
+import { Image } from "antd";
+import { Link } from "react-router-dom";
+import { styles } from "../../styles/tailwind/table/index.css";
+
 export default function Table() {
     return (
-        <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-            <table className="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
-                <thead className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+        <div className={`${styles.tableWrapper}`}>
+            <table className={`${styles.table}`}>
+                <thead className={`${styles.thead}`}>
                     <tr>
                         <th scope="col" className="px-6 py-3">
-                            Product name
+                            Avatar
                         </th>
                         <th scope="col" className="px-6 py-3">
-                            Color
+                            Username
                         </th>
                         <th scope="col" className="px-6 py-3">
-                            Category
+                            Title
                         </th>
                         <th scope="col" className="px-6 py-3">
-                            Price
+                            Status
+                        </th>
+                        <th scope="col" className="px-6 py-3">
+                            Comments
                         </th>
                         <th scope="col" className="px-6 py-3">
                             <span className="sr-only">Edit</span>
@@ -25,9 +32,12 @@ export default function Table() {
                 </thead>
 
                 <tbody>
-                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Apple MacBook Pro 17"
+                    <tr className={`${styles.tr}`}>
+                        <th scope="row" className={`${styles.th}`}>
+                            <Image src="https://flowbite.com/docs/images/carousel/carousel-1.svg" width={50} className="w-[50px] rounded-full" />
+                        </th>
+                        <th scope="row" className={`${styles.th}`}>
+                            Silver
                         </th>
                         <td className="px-6 py-4">
                             Silver
@@ -39,12 +49,15 @@ export default function Table() {
                             $2999
                         </td>
                         <td className="px-6 py-4 text-right">
-                            <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                            <Link to="details/id=1" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</Link>
                         </td>
                     </tr>
-                    <tr className="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Microsoft Surface Pro
+                    <tr className={`${styles.tr}`}>
+                        <th scope="row" className={`${styles.th}`}>
+                            <Image src="https://flowbite.com/docs/images/carousel/carousel-1.svg" width={50} className="w-[50px] rounded-full" />
+                        </th>
+                        <th scope="row" className={`${styles.th}`}>
+                            Silver
                         </th>
                         <td className="px-6 py-4">
                             White
@@ -56,12 +69,16 @@ export default function Table() {
                             $1999
                         </td>
                         <td className="px-6 py-4 text-right">
-                            <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                            <Link to="details/id=2" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</Link>
                         </td>
                     </tr>
-                    <tr className="bg-white dark:bg-gray-800 hover:bg-gray-50 dark:hover:bg-gray-600">
-                        <th scope="row" className="px-6 py-4 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                            Magic Mouse 2
+
+                    <tr className={`${styles.tr2}`}>
+                        <th scope="row" className={`${styles.th}`}>
+                            <Image src="https://flowbite.com/docs/images/carousel/carousel-1.svg" width={50} className="w-[50px] rounded-full" />
+                        </th>
+                        <th scope="row" className={`${styles.th}`}>
+                            Silver
                         </th>
                         <td className="px-6 py-4">
                             Black
@@ -73,7 +90,7 @@ export default function Table() {
                             $99
                         </td>
                         <td className="px-6 py-4 text-right">
-                            <a href="#" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</a>
+                            <Link to="details/id=3" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</Link>
                         </td>
                     </tr>
                 </tbody>
