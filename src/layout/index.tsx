@@ -7,7 +7,7 @@ type LayoutProps = {
 
 export default function Layout({ children }: LayoutProps) {
     return (
-        <div>
+        <div className='bg-white dark:bg-slate-800'>
             <Header />
             {children}
             <h1>footer</h1>
