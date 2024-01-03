@@ -2,13 +2,13 @@
 import { Switch } from 'antd';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { LOGO } from '../../constants';
+import { LIGHT, LOGO } from '../../constants';
 import useDarkSide from '../../hooks/useDarkMode';
 import { styles } from '../../styles/tailwind/header/index.css';
 
 export default function Header() {
     const [colorTheme, setTheme] = useDarkSide();
-    const [darkSide, setDarkSide] = useState(colorTheme === 'light' ? true : false);
+    const [darkSide, setDarkSide] = useState(colorTheme === LIGHT ? true : false);
 
     const onSwitchChange = (checked: boolean) => {
         setTheme(colorTheme);
