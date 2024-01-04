@@ -1,10 +1,12 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 
-import { Image } from "antd";
+import { Image, Pagination } from "antd";
 import { Link } from "react-router-dom";
+import useIssue from "../../resources/useIssue";
 import { styles } from "../../styles/tailwind/table/index.css";
 
 export default function Table() {
+    const { currentPageData, totalPages, onPageChange } = useIssue();
     return (
         <div className={`${styles.tableWrapper}`}>
             <table className={`${styles.table}`}>
@@ -31,70 +33,39 @@ export default function Table() {
                     </tr>
                 </thead>
 
-                <tbody>
-                    <tr className={`${styles.tr}`}>
-                        <th scope="row" className={`${styles.th}`}>
-                            <Image src="https://flowbite.com/docs/images/carousel/carousel-1.svg" width={50} className="w-[50px] rounded-full" />
-                        </th>
-                        <th scope="row" className={`${styles.th}`}>
-                            Silver
-                        </th>
-                        <td className="px-6 py-4">
-                            Silver
-                        </td>
-                        <td className="px-6 py-4">
-                            Laptop
-                        </td>
-                        <td className="px-6 py-4">
-                            $2999
-                        </td>
-                        <td className="px-6 py-4 text-right">
-                            <Link to="details/id=1" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</Link>
-                        </td>
-                    </tr>
-                    <tr className={`${styles.tr}`}>
-                        <th scope="row" className={`${styles.th}`}>
-                            <Image src="https://flowbite.com/docs/images/carousel/carousel-1.svg" width={50} className="w-[50px] rounded-full" />
-                        </th>
-                        <th scope="row" className={`${styles.th}`}>
-                            Silver
-                        </th>
-                        <td className="px-6 py-4">
-                            White
-                        </td>
-                        <td className="px-6 py-4">
-                            Laptop PC
-                        </td>
-                        <td className="px-6 py-4">
-                            $1999
-                        </td>
-                        <td className="px-6 py-4 text-right">
-                            <Link to="details/id=2" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</Link>
-                        </td>
-                    </tr>
+                {
+                    currentPageData.map((issue: any, index: number) => (
+                        <tbody key={index}>
+                            <tr className={`${styles.tr}`}>
+                                <th scope="row" className={`${styles.th}`}>
+                                    <Image src={issue?.user?.avatar_url} width={50} className="w-[50px] rounded-full" />
+                                </th>
+                                <th scope="row" className={`${styles.th}`}>
+                                    {issue?.user?.login}
+                                </th>
+                                <td className="px-6 py-4">
+                                    {issue?.title}
+                                </td>
+                                <td className="px-6 py-4">
+                                    <div className="flex items-center">
+                                        <div className={`h-2.5 w-2.5 rounded-full bg-${issue?.state === "open" ? "green" : "red"}-500 me-2`}></div> {issue?.state}
+                                    </div>
 
-                    <tr className={`${styles.tr2}`}>
-                        <th scope="row" className={`${styles.th}`}>
-                            <Image src="https://flowbite.com/docs/images/carousel/carousel-1.svg" width={50} className="w-[50px] rounded-full" />
-                        </th>
-                        <th scope="row" className={`${styles.th}`}>
-                            Silver
-                        </th>
-                        <td className="px-6 py-4">
-                            Black
-                        </td>
-                        <td className="px-6 py-4">
-                            Accessories
-                        </td>
-                        <td className="px-6 py-4">
-                            $99
-                        </td>
-                        <td className="px-6 py-4 text-right">
-                            <Link to="details/id=3" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</Link>
-                        </td>
-                    </tr>
-                </tbody>
+                                </td>
+                                <td className="px-6 py-4">
+                                    {issue?.comments}
+                                </td>
+                                <td className="px-6 py-4 text-right">
+                                    <Link to="details/id=1" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</Link>
+                                </td>
+                            </tr>
+                        </tbody>
+                    ))
+                }
             </table>
+            <div className="my-3">
+                <Pagination showQuickJumper={false} defaultCurrent={1} total={totalPages * 10} onChange={(data) => { onPageChange(data) }} />
+            </div>
         </div>
 
     )

@@ -16,10 +16,9 @@ export default function SelectBox({ options, label, className, onChange = () => 
                 {label || "Select an option"}
             </label>
 
-            <select id="countries" className={`${styles.select}`} onChange={e => onChange(e.target.value)}>
-                <option selected>Choose a options</option>
+            <select defaultValue={options[0].value} id="countries" className={`${styles.select}`} onChange={e => onChange(e.target.value)}>
                 {
-                    checkArray(options) && options.map((option) => <option value={option.value}>{option.label}</option>)
+                    checkArray(options) && options.map((option, index) => <option key={index} value={option.value}>{option.label}</option>)
                 }
             </select>
         </div>
