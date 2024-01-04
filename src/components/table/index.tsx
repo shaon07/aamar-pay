@@ -6,7 +6,9 @@ import useIssue from "../../resources/useIssue";
 import { styles } from "../../styles/tailwind/table/index.css";
 
 export default function Table() {
-    const { currentPageData, totalPages, onPageChange } = useIssue();
+    const { currentPageData, totalPages, onPageChange, currentPage } = useIssue();
+
+    console.log(currentPage)
     return (
         <div className={`${styles.tableWrapper}`}>
             <table className={`${styles.table}`}>
@@ -64,7 +66,7 @@ export default function Table() {
                 }
             </table>
             <div className="my-3">
-                <Pagination showQuickJumper={false} defaultCurrent={1} total={totalPages * 10} onChange={(data) => { onPageChange(data) }} />
+                <Pagination showQuickJumper={false} defaultCurrent={1} current={currentPage} total={totalPages * 10} onChange={(data) => { onPageChange(data) }} />
             </div>
         </div>
 

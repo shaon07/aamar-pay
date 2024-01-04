@@ -18,6 +18,7 @@ export default function usePagination(arr: any) {
     return {
         paginateArray,
         totalPages,
-        onPaginate
+        onPaginate,
+        currentPage
     }
 }
