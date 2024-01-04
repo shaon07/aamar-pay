@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import counterReducer from "../redux/slices/counterSlice";
+import issueReducer from "../redux/slices/issueSlice";
 
 export const store = configureStore({
   reducer: {
     counterReducer,
+    issueReducer,
   },
 });
 
