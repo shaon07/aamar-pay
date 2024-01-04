@@ -28,7 +28,7 @@ export default function Table() {
                             Comments
                         </th>
                         <th scope="col" className="px-6 py-3">
-                            <span className="sr-only">Edit</span>
+                            Details
                         </th>
                     </tr>
                 </thead>
@@ -44,7 +44,7 @@ export default function Table() {
                                     {issue?.user?.login}
                                 </th>
                                 <td className="px-6 py-4">
-                                    {issue?.title}
+                                    <span>{issue?.title}</span>
                                 </td>
                                 <td className="px-6 py-4">
                                     <div className="flex items-center">
@@ -56,7 +56,7 @@ export default function Table() {
                                     {issue?.comments}
                                 </td>
                                 <td className="px-6 py-4 text-right">
-                                    <Link to="details/id=1" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">Edit</Link>
+                                    <Link to="details/id=1" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</Link>
                                 </td>
                             </tr>
                         </tbody>
