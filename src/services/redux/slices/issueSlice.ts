@@ -2,10 +2,12 @@ import { createSlice } from "@reduxjs/toolkit";
 
 export type initialStateType = {
   issueLists: any[];
+  cachedIssues: any[];
 };
 
 export const initialState: initialStateType = {
   issueLists: [],
+  cachedIssues: [],
 };
 
 export const issueSlice = createSlice({
@@ -14,21 +16,22 @@ export const issueSlice = createSlice({
   reducers: {
     storeIssueList: (state, action) => {
       state.issueLists = action.payload;
+      state.cachedIssues = action.payload;
     },
     filterIssueListByDate: (state) => {
       // sort array of an object by created_at in ascending order
-      state.issueLists = state.issueLists.sort(
+      state.issueLists = state.cachedIssues.sort(
         (a: any, b: any) =>
           Number(new Date(a.created_at)) - Number(new Date(b.created_at))
       );
     },
     filterByMostComments: (state) => {
-      state.issueLists = state.issueLists.sort(
+      state.issueLists = state.cachedIssues.sort(
         (a: any, b: any) => b.comments - a.comments
       );
     },
     filterIssueListByContribute: (state) => {
-      state.issueLists = state.issueLists.filter(
+      state.issueLists = state.cachedIssues.filter(
         (issue) => issue.author_association === "CONTRIBUTOR"
       );
     },

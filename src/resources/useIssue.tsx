@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { filterByMostComments, filterIssueListByContribute, filterIssueListByDate } from '../services/redux/slices/issueSlice';
+import { setCurrentPage } from '../services/redux/slices/pagenationSlice';
 import { RootState } from '../services/redux/store';
 import usePagination from './usePagination';
 
@@ -17,18 +18,18 @@ export default function useIssue() {
     const handleFilterState = (type: string) => {
         switch (type) {
             case 'comments':
-                dispatch(filterByMostComments())
-                onPageChange(1)
+                dispatch(filterByMostComments());
+                dispatch(setCurrentPage(1))
                 break;
 
             case 'contribute':
                 dispatch(filterIssueListByContribute())
-                onPageChange(1)
+                dispatch(setCurrentPage(1))
                 break;
 
             case 'by_date':
                 dispatch(filterIssueListByDate())
-                onPageChange(1)
+                dispatch(setCurrentPage(1))
                 break;
 
             default:

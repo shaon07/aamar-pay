@@ -8,7 +8,6 @@ import { styles } from "../../styles/tailwind/table/index.css";
 export default function Table() {
     const { currentPageData, totalPages, onPageChange, currentPage } = useIssue();
 
-    console.log(currentPage)
     return (
         <div className={`${styles.tableWrapper}`}>
             <table className={`${styles.table}`}>

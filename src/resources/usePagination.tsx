@@ -1,8 +1,10 @@
-import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setCurrentPage } from "../services/redux/slices/pagenationSlice";
+import { RootState } from "../services/redux/store";
 
 export default function usePagination(arr: any) {
-    const pageSize = 10;
-    const [currentPage, setCurrentPage] = useState(1);
+    const dispatch = useDispatch();
+    const { currentPage, pageSize } = useSelector((state: RootState) => state.paginationReducer);
     const totalPages = Math.ceil(arr.length / pageSize);
 
     function paginateArray(arr: any,) {
@@ -12,7 +14,7 @@ export default function usePagination(arr: any) {
     }
 
     const onPaginate = (page: number) => {
-        setCurrentPage(page);
+        dispatch(setCurrentPage(page))
     }
 
     return {
