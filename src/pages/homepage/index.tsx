@@ -1,6 +1,8 @@
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
+import { Loader } from "../../components/loader";
 import { REPO_LIST_URL } from "../../constants";
+import useIssue from "../../resources/useIssue";
 import HomepageViewLayer from "../../screens/homepageViewLayer";
 import useFetch from "../../services/api";
 import { storeIssueList } from "../../services/redux/slices/issueSlice";
@@ -9,6 +11,7 @@ import { checkArray } from "../../utils/checkArray";
 export default function Homepage() {
     const dispatch = useDispatch();
     const { error, loading, fetchData } = useFetch();
+    const { currentPageData } = useIssue();
 
     useEffect(() => {
         fetchData(REPO_LIST_URL).then(data => {
@@ -17,7 +20,7 @@ export default function Homepage() {
         // eslint-disable-next-line react-hooks/exhaustive-deps
     }, []);
 
-    if (loading) return <h1>Loading...</h1>
+    if (loading && currentPageData.length === 0) return <Loader />
     if (error) return <h1>{error}</h1>
 
 
