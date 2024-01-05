@@ -10,3 +10,7 @@
 .dark .pagination .ant-pagination-item-active a {
   color: black;
 }
+
+.dark .ant-empty-description {
+  color: white;
+}
