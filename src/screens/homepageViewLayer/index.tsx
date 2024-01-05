@@ -12,7 +12,7 @@ export default function HomepageViewLayer() {
         <div className={`${globalStyles.container} mx-auto`}>
             <Row>
                 <Col xs={24}>
-                    <div className="shadow-md flex flex-col gap-2">
+                    <div className="flex flex-col gap-2">
                         <div className="max-w-52">
                             <SelectBox onChange={(data) => { handleFilterState(data) }} options={selectBoxOptions} label="Select an option" />
                         </div>
