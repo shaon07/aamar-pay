@@ -10,7 +10,6 @@ export default function Layout({ children }: LayoutProps) {
         <div className='bg-white dark:bg-slate-800'>
             <Header />
             {children}
-            <h1>footer</h1>
         </div>
     )
 }
