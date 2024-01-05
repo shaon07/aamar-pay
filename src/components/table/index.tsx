@@ -57,7 +57,7 @@ export default function Table() {
                                     {issue?.comments}
                                 </td>
                                 <td className="px-6 py-4 text-right">
-                                    <Link to="details/id=1" className="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</Link>
+                                    <Link to={`details/${issue?.number}`} className="font-medium text-blue-600 dark:text-blue-500 hover:underline">View</Link>
                                 </td>
                             </tr>
                         </tbody>
