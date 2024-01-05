@@ -3,3 +3,8 @@ export type selectOptions = {
   value: string;
   disable: boolean;
 };
+
+export type tableType = {
+  id: number;
+  title: string;
+};

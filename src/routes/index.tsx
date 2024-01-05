@@ -8,7 +8,7 @@ export default function RouterContainer() {
         <Routes>
             <Route path="/" element={<Homepage />} />
             <Route path="/details/:id" element={<Details />} />
-            <Route element={<NotFound />} />
+            <Route path='*' element={<NotFound />} />
         </Routes>
     )
 }
