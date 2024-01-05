@@ -4,6 +4,7 @@ import { Image, Pagination } from "antd";
 import { Link } from "react-router-dom";
 import useIssue from "../../resources/useIssue";
 import { styles } from "../../styles/tailwind/table/index.css";
+import Pill from "../pill";
 
 export default function Table() {
     const { currentPageData, totalPages, onPageChange, currentPage } = useIssue();
@@ -48,9 +49,12 @@ export default function Table() {
                                     <span>{issue?.title}</span>
                                 </td>
                                 <td className="px-6 py-4">
-                                    <div className="flex items-center">
+                                    <Pill type={issue?.state} />
+
+
+                                    {/* <div className="flex items-center">
                                         <div className={`h-2.5 w-2.5 rounded-full bg-${issue?.state === "open" ? "green" : "red"}-500 me-2`}></div> {issue?.state}
-                                    </div>
+                                    </div> */}
 
                                 </td>
                                 <td className="px-6 py-4">

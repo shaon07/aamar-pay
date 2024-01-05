@@ -21,7 +21,7 @@ const GitHubIssueComponent = ({ issueData }: { issueData: any }) => {
     return (
         <div className={`${styles.container}`}>
             <div className={`${styles.headingTab}`}>
-                <h1 className="text-lg font-bold">{title}</h1>
+                <h1 className="text-base md:text-lg font-bold ">{title}</h1>
                 <span className="text-gray-600">{`#${number}`}</span>
             </div>
 
