@@ -6,12 +6,7 @@ type detailsPageType = {
 
 export default function DetailPageViewLayer({ data }: detailsPageType) {
     return (
-        <div>
-            {/* <pre>
-                {
-                    JSON.stringify(data, null, 2)
-                }
-            </pre> */}
+        <div className="pb-2">
             <GitHubIssueComponent issueData={data} />
         </div>
     )
